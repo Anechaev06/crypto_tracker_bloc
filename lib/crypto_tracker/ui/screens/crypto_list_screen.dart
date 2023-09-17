@@ -6,14 +6,12 @@ import '../../blocs/crypto_list_bloc.dart';
 final getIt = GetIt.instance;
 
 class CryptoListScreen extends StatelessWidget {
-  const CryptoListScreen({Key? key})
-      : super(key: key); // Changed super.key to key
+  const CryptoListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          getIt<CryptoListBloc>(), // Use GetIt to provide the Bloc
+      create: (context) => getIt<CryptoListBloc>(),
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Cryptocurrencies'),

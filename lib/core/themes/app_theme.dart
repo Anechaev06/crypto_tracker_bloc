@@ -11,5 +11,12 @@ class AppTheme {
       background: AppColors.backgroundColor,
     ),
     textTheme: GoogleFonts.robotoMonoTextTheme(),
+    appBarTheme: appBarTheme,
+  );
+
+  static const AppBarTheme appBarTheme = AppBarTheme(
+    color: AppColors.backgroundColor,
+    elevation: 0,
+    centerTitle: true,
   );
 }
