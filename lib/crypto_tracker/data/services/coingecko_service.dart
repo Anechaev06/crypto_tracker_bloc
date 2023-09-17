@@ -25,13 +25,10 @@ class CoinGeckoService {
             .toList();
         return cryptos;
       } else {
-        print(
-            'API Request Error: ${response.statusCode} ${response.reasonPhrase}');
         throw Exception('Failed to load cryptocurrencies');
       }
     } catch (e) {
-      print('API Request Error: $e');
-      throw Exception('Failed to load cryptocurrencies');
+      throw Exception('Failed to load cryptocurrencies, $e');
     }
   }
 }

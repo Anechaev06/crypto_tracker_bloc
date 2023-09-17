@@ -26,3 +26,5 @@ class CryptoListError extends CryptoListState {
   @override
   List<Object?> get props => [message];
 }
+
+class CryptoListEmpty extends CryptoListState {}

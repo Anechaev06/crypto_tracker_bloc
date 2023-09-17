@@ -18,7 +18,8 @@ class CryptoListBloc extends Bloc<CryptoListEvent, CryptoListState> {
         final cryptos = await cryptoRepository.fetchCryptos();
         yield CryptoListLoaded(cryptos: cryptos);
       } catch (e) {
-        yield const CryptoListError('Failed to load cryptocurrencies');
+        yield CryptoListError(
+            'Failed to load cryptocurrencies: ${e.toString()}');
       }
     }
   }
