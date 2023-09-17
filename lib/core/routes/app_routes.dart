@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:crypto_tracker_bloc/crypto_tracker/screens/crypto_detail_screen.dart';
-import 'package:crypto_tracker_bloc/crypto_tracker/screens/crypto_list_screen.dart';
+import 'package:crypto_tracker_bloc/crypto_tracker/ui/screens/crypto_detail_screen.dart';
+import 'package:crypto_tracker_bloc/crypto_tracker/ui/screens/crypto_list_screen.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
