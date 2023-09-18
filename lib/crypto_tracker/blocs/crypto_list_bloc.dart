@@ -15,7 +15,11 @@ class CryptoListBloc extends Bloc<CryptoListEvent, CryptoListState> {
       emit(CryptoListLoading());
       try {
         final cryptos = await cryptoRepository.fetchCryptos();
-        emit(CryptoListLoaded(cryptos: cryptos));
+        if (cryptos.isEmpty) {
+          emit(CryptoListEmpty());
+        } else {
+          emit(CryptoListLoaded(cryptos: cryptos));
+        }
       } catch (e) {
         emit(CryptoListError(
             'Failed to load cryptocurrencies: ${e.toString()}'));
