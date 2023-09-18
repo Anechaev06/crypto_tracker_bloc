@@ -11,7 +11,7 @@ class CryptoListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<CryptoListBloc>(),
+      create: (context) => getIt<CryptoListBloc>()..add(LoadCryptos()),
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Cryptocurrencies'),

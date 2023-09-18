@@ -4,7 +4,7 @@ abstract class CryptoListEvent extends Equatable {
   const CryptoListEvent();
 
   @override
-  List<Object?> get props => [];
+  List<Object> get props => [];
 }
 
 class LoadCryptos extends CryptoListEvent {}
