@@ -9,7 +9,7 @@ import 'package:get_it/get_it.dart';
 final getIt = GetIt.instance;
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key); // changed super.key to key
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +17,10 @@ class App extends StatelessWidget {
       theme: AppTheme.theme,
       onGenerateRoute: AppRouter.generateRoute,
       debugShowCheckedModeBanner: false,
-      home: _buildHome(),
-    );
-  }
-
-  Widget _buildHome() {
-    return BlocProvider(
-      create: (context) => getIt<CryptoListBloc>(),
-      child: const CryptoListScreen(),
+      home: BlocProvider(
+        create: (context) => getIt<CryptoListBloc>(),
+        child: const CryptoListScreen(),
+      ),
     );
   }
 }
