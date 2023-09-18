@@ -9,18 +9,17 @@ part 'crypto_list_state.dart';
 class CryptoListBloc extends Bloc<CryptoListEvent, CryptoListState> {
   final CryptoRepository cryptoRepository;
 
-  CryptoListBloc({required this.cryptoRepository}) : super(CryptoListLoading());
-
-  Stream<CryptoListState> mapEventToState(CryptoListEvent event) async* {
-    if (event is LoadCryptos) {
-      yield CryptoListLoading();
+  CryptoListBloc({required this.cryptoRepository})
+      : super(CryptoListInitial()) {
+    on<LoadCryptos>((event, emit) async {
+      emit(CryptoListLoading());
       try {
         final cryptos = await cryptoRepository.fetchCryptos();
-        yield CryptoListLoaded(cryptos: cryptos);
+        emit(CryptoListLoaded(cryptos: cryptos));
       } catch (e) {
-        yield CryptoListError(
-            'Failed to load cryptocurrencies: ${e.toString()}');
+        emit(CryptoListError(
+            'Failed to load cryptocurrencies: ${e.toString()}'));
       }
-    }
+    });
   }
 }

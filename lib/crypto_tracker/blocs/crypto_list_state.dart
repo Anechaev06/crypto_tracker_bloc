@@ -7,6 +7,8 @@ abstract class CryptoListState extends Equatable {
   List<Object?> get props => [];
 }
 
+class CryptoListInitial extends CryptoListState {}
+
 class CryptoListLoading extends CryptoListState {}
 
 class CryptoListLoaded extends CryptoListState {
